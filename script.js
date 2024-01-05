@@ -4,6 +4,17 @@ console.log("Hello World")
 // The choices must be made randomly 
 
 function getComputerChoice () {
-    let choice = Math.floor(Math.random() * 100) +1;
+    // use math to deice the which chouice is call
+    //  0-99 to give each choice a 1/3rd chance
+    let choice = Math.floor(Math.random() * 100);
+    if( choice <= 33) {
+        return 'rock'
+    }
+    else if (choice > 33 && choice <= 66) {
+        return 'paper'
+    } 
+    else {
+        return scissors
+    }
     return choice
 }
