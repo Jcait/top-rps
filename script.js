@@ -40,15 +40,14 @@ function getComputerChoice () {
 // const computerSelection = getComputerChoice()
 
 function game() {
-    let playerScore
-    let computerScore
-    for( let i = 0; i < 6; i++) {}
+    let playerScore = 0;
+    let computerScore = 0
     function playRound(playerSelection, computerSelection) {
         if(playerSelection == computerSelection) {
             return 'Tie Game!!"'
         }
         else if (playerSelection > computerSelection) {
-            playerScore++
+            playerScore ++
             return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
         } else {
             computerScore++
@@ -57,12 +56,20 @@ function game() {
         
     }
     
-    const playerSelection = prompt().toLocaleLowerCase()
-    const computerSelection = getComputerChoice()
+    let playerSelection = prompt().toLocaleLowerCase()
+    let computerSelection = getComputerChoice()
 
     console.log(playRound(playerSelection, computerSelection))
     console.log(playerSelection)
     console.log(computerSelection)
+
+    if(playerScore > computerScore) {
+        return `Great Job you scored ${playerScore} while the computer only scored ${computerScore}. A winner is you!`
+    } else if (playerScore < computerScore)  {
+        return `Tough break,  you scored ${playerScore} while the computer scored ${computerScore} you lose. `
+    } else {
+        return ' You tied with the computer'
+    }
 
 }
 
