@@ -21,7 +21,7 @@ console.log("Hello World")
 
 // using ASCII value to simplyfy conditionals
 // rock > paper true
-// paper > scissors true
+// Scissors > paper true
 // scissors > rock true
 
 // function playRound(playerSelection, computerSelection) {
@@ -65,27 +65,30 @@ function game() {
     for(i = 0; i < 6; i++) {
         let playerSelection = prompt().toLocaleLowerCase()
         let computerSelection = getComputerChoice()
+        let result
         // Calls the player and computer to make their choice
-        // ASCII values and score added if the player or computer win
+        // ASCII values and score added if the player or computer win <-- DOesnt work
         // May make it first to five in future
         function playRound(playerSelection, computerSelection) {
-            if(playerSelection == computerSelection) {
-                return 'Tie Game!!"'
-            }
-            else if (playerSelection > computerSelection) {
+            if(playerSelection !== computerSelection) {
+                if (playerSelection == "rock" &&   computerSelection == "scissors" || 
+                    playerSelection == "scissors" &&   computerSelection == "paper"||
+                    playerSelection == "paper" &&   computerSelection == "rock") {
                 playerScore ++
                 return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
-            } else {
-                computerScore++
-                return `You selected ${playerSelection} and the computer selected ${computerSelection}, you lose!!`
-            }
-            
+                } else {
+                    computerScore++
+                    return `You selected ${playerSelection} and the computer selected ${computerSelection}, you lose!!`
+                } 
+        } else {
+            return `Tie game!`
         }
         // Checks the result of each round for testing purposes
         console.log(playRound(playerSelection, computerSelection))
         console.log(playerSelection)
         console.log(computerSelection)
     }
+}
 
     
 
