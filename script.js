@@ -18,3 +18,25 @@ function getComputerChoice () {
     }
     return choice
 }
+
+// using ASCII value to simplyfy conditionals
+// rock > paper true
+// paper > scissors true
+// scissors > rock true
+
+function playRound(playerSelection, computerSelection) {
+    if(playerSelection == computerSelection) {
+        return 'Tie Game!!"'
+    }
+    else if (playerSelection > computerSelection) {
+        return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
+    } else {
+        return `You selected ${playerSelection} and the computer selected ${computerSelection}, you lose!!`
+    }
+    
+}
+
+const playerSelection = 'rock'
+const computerSelection = getComputerChoice()
+
+console.log(playRound(playerSelection, computerSelection))
