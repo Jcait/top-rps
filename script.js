@@ -24,21 +24,45 @@ function getComputerChoice () {
 // paper > scissors true
 // scissors > rock true
 
-function playRound(playerSelection, computerSelection) {
-    if(playerSelection == computerSelection) {
-        return 'Tie Game!!"'
-    }
-    else if (playerSelection > computerSelection) {
-        return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
-    } else {
-        return `You selected ${playerSelection} and the computer selected ${computerSelection}, you lose!!`
+// function playRound(playerSelection, computerSelection) {
+//     if(playerSelection == computerSelection) {
+//         return 'Tie Game!!"'
+//     }
+//     else if (playerSelection > computerSelection) {
+//         return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
+//     } else {
+//         return `You selected ${playerSelection} and the computer selected ${computerSelection}, you lose!!`
+//     }
+    
+// }
+
+// const playerSelection = prompt().toLocaleLowerCase()
+// const computerSelection = getComputerChoice()
+
+function game() {
+    let playerScore
+    let computerScore
+    for( let i = 0; i < 6; i++) {}
+    function playRound(playerSelection, computerSelection) {
+        if(playerSelection == computerSelection) {
+            return 'Tie Game!!"'
+        }
+        else if (playerSelection > computerSelection) {
+            playerScore++
+            return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
+        } else {
+            computerScore++
+            return `You selected ${playerSelection} and the computer selected ${computerSelection}, you lose!!`
+        }
+        
     }
     
+    const playerSelection = prompt().toLocaleLowerCase()
+    const computerSelection = getComputerChoice()
+
+    console.log(playRound(playerSelection, computerSelection))
+    console.log(playerSelection)
+    console.log(computerSelection)
+
 }
 
-const playerSelection = prompt().toLocaleLowerCase()
-const computerSelection = getComputerChoice()
-
-console.log(playRound(playerSelection, computerSelection))
-console.log(playerSelection)
-console.log(computerSelection)
