@@ -65,7 +65,6 @@ function game() {
     for(i = 0; i < 6; i++) {
         let playerSelection = prompt().toLocaleLowerCase()
         let computerSelection = getComputerChoice()
-        let result
         // Calls the player and computer to make their choice
         // ASCII values and score added if the player or computer win <-- DOesnt work
         // May make it first to five in future
@@ -84,10 +83,14 @@ function game() {
             return `Tie game!`
         }
         // Checks the result of each round for testing purposes
-        console.log(playRound(playerSelection, computerSelection))
-        console.log(playerSelection)
-        console.log(computerSelection)
+        // console.log(playRound(playerSelection, computerSelection))
+        // console.log(playerSelection)
+        // console.log(computerSelection)
     }
+
+    console.log(playRound(playerSelection, computerSelection))
+    console.log(playerSelection)
+    console.log(computerSelection)
 }
 
     
@@ -98,7 +101,7 @@ function game() {
     } else if (playerScore < computerScore)  {
         return `Tough break,  you scored ${playerScore} while the computer scored ${computerScore} you lose. `
     } else {
-        return ' You'
+        return ' You Tied with the computer'
     }
 
 }
