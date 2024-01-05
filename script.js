@@ -14,7 +14,7 @@ function getComputerChoice () {
         return 'paper'
     } 
     else {
-        return scissors
+        return "scissors"
     }
     return choice
 }
@@ -40,3 +40,5 @@ const playerSelection = 'rock'
 const computerSelection = getComputerChoice()
 
 console.log(playRound(playerSelection, computerSelection))
+console.log(playerSelection)
+console.log(computerSelection)
