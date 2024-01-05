@@ -73,8 +73,8 @@ function game() {
                 if (playerSelection == "rock" &&   computerSelection == "scissors" || 
                     playerSelection == "scissors" &&   computerSelection == "paper"||
                     playerSelection == "paper" &&   computerSelection == "rock") {
-                playerScore ++
-                return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
+                        playerScore ++
+                        return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
                 } else {
                     computerScore++
                     return `You selected ${playerSelection} and the computer selected ${computerSelection}, you lose!!`
