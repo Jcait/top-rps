@@ -1,5 +1,11 @@
 console.log("Hello World")
+const btn = document.querySelectorAll("button")
 
+btn.forEach((currentBtn) => {
+    currentBtn.addEventListener('click', () => {
+        console.log(currentBtn.textContent)
+    })
+})
 
 function game() {
 
@@ -18,6 +24,7 @@ function game() {
             return "scissors"
         }
         return choice
+
     }
 
 
