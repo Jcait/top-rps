@@ -1,9 +1,10 @@
 console.log("Hello World")
 const btn = document.querySelectorAll("button")
 
+let playerChoice
 btn.forEach((currentBtn) => {
     currentBtn.addEventListener('click', () => {
-        console.log(currentBtn.textContent)
+        playerChoice = currentBtn.textContent.toLowerCase()
     })
 })
 
@@ -32,12 +33,11 @@ function game() {
     let computerScore = 0
     // Loops though 5 games
     for(i = 0; i < 6; i++) {
-        let playerSelection = prompt().toLocaleLowerCase()
         let computerSelection = getComputerChoice()
         // Calls the player and computer to make their choice
         // ASCII values and score added if the player or computer win <-- DOesnt work
         // May make it first to five in future
-        function playRound(playerSelection, computerSelection) {
+        function playRound(playerChoice, computerSelection) {
             if(playerSelection !== computerSelection) {
                 if (playerSelection == "rock" &&   computerSelection == "scissors" || 
                     playerSelection == "scissors" &&   computerSelection == "paper"||
