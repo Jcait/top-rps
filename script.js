@@ -1,47 +1,67 @@
 console.log("Hello World")
 const btn = document.querySelectorAll("button")
+const para = document.createElement('p')
 
 let playerChoice
 btn.forEach((currentBtn) => {
     currentBtn.addEventListener('click', () => {
         playerChoice = currentBtn.textContent.toLowerCase()
+        console.log(playerChoice)
     })
 })
 
-function game() {
+let computerChoice
 
 
-    function getComputerChoice () {
-        // use math to deice the which chouice is call
-        //  0-99 to give each choice a 1/3rd chance
-        let choice = Math.floor(Math.random() * 100);
-        if( choice <= 33) {
-            return 'rock'
-        }
-        else if (choice > 33 && choice <= 66) {
-            return 'paper'
+
+
+
+
+function getComputerChoice () {
+    // use math to deice the which chouice is call
+    //  0-99 to give each choice a 1/3rd chance
+    let choice = Math.floor(Math.random() * 100);
+    if( choice <= 33) {
+       computerChoice = 'rock'
+   }
+    else if (choice > 33 && choice <= 66) {
+            computerChoice = 'paper'
         } 
-        else {
-            return "scissors"
+    else {
+            computerChoice = "scissors"
         }
-        return choice
-
     }
 
 
-    let playerScore = 0;
-    let computerScore = 0
-    // Loops though 5 games
-    for(i = 0; i < 6; i++) {
-        let computerSelection = getComputerChoice()
-        // Calls the player and computer to make their choice
-        // ASCII values and score added if the player or computer win <-- DOesnt work
-        // May make it first to five in future
-        function playRound(playerChoice, computerSelection) {
-            if(playerSelection !== computerSelection) {
-                if (playerSelection == "rock" &&   computerSelection == "scissors" || 
-                    playerSelection == "scissors" &&   computerSelection == "paper"||
-                    playerSelection == "paper" &&   computerSelection == "rock") {
+function playRound(playerChoice, getComputerChoice) {
+    if(playerChoice !== getComputerChoice) {
+        if (playerChoice == "rock" &&   getComputerChoice == "scissors" || 
+        playerChoice == "scissors" &&   getComputerChoice == "paper"||
+        playerChoice == "paper" &&   getComputerChoice == "rock") {
+                playerScore ++
+                return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
+        } else {
+            computerScore++
+            return `You selected ${playerSelection} and the computer selected ${computerSelection}, you lose!!`
+           } 
+    } else {
+        return `Tie game!`
+    }
+
+}
+
+
+
+
+    btn.forEach((currentBtn) => {
+    currentBtn.addEventListener('click', (getComputerChoice))
+})
+
+        function playRound(playerChoice, getComputerChoice) {
+            if(playerChoice !== getComputerChoice) {
+                if (playerChoice == "rock" &&   getComputerChoice == "scissors" || 
+                playerChoice == "scissors" &&   getComputerChoice == "paper"||
+                playerChoice == "paper" &&   getComputerChoice == "rock") {
                         playerScore ++
                         return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
                 } else {
@@ -51,27 +71,23 @@ function game() {
         } else {
             return `Tie game!`
         }
-        // Checks the result of each round for testing purposes
-        // console.log(playRound(playerSelection, computerSelection))
-        // console.log(playerSelection)
-        // console.log(computerSelection)
+
     }
 
-    console.log(playRound(playerSelection, computerSelection))
-    console.log(playerSelection)
+    console.log(playRound(playerChoice, computerSelection))
+    console.log(playerChoice)
     console.log(computerSelection)
-}
+
 
     
 
-// Scpre calculating at the end
-    if(playerScore > computerScore) {
-        return `Great Job you scored ${playerScore} while the computer only scored ${computerScore}. A winner is you!`
-    } else if (playerScore < computerScore)  {
-        return `Tough break,  you scored ${playerScore} while the computer scored ${computerScore} you lose. `
-    } else {
-        return ' You Tied with the computer'
-    }
+// // Scpre calculating at the end
+//     if(playerScore > computerScore) {
+//         return `Great Job you scored ${playerScore} while the computer only scored ${computerScore}. A winner is you!`
+//     } else if (playerScore < computerScore)  {
+//         return `Tough break,  you scored ${playerScore} while the computer scored ${computerScore} you lose. `
+//     } else {
+//         return ' You Tied with the computer'
+//     }
 
-}
 
