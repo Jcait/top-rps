@@ -1,18 +1,10 @@
 console.log("Hello World")
 const btn = document.querySelectorAll("button")
 const para = document.createElement('p')
-
-let playerChoice
-btn.forEach((currentBtn) => {
-    currentBtn.addEventListener('click', () => {
-        playerChoice = currentBtn.textContent.toLowerCase()
-        console.log(playerChoice)
-    })
-})
-
+let computerScore = 0
+let playerScore = 0
 let computerChoice
-
-
+let playerChoice
 
 
 
@@ -32,17 +24,28 @@ function getComputerChoice () {
         }
     }
 
+btn.forEach((currentBtn) => {
+    currentBtn.addEventListener('click', () => {
+       playerChoice = currentBtn.textContent
+    })
+})
+
 
 function playRound(playerChoice, getComputerChoice) {
-    if(playerChoice !== getComputerChoice) {
-        if (playerChoice == "rock" &&   getComputerChoice == "scissors" || 
-        playerChoice == "scissors" &&   getComputerChoice == "paper"||
-        playerChoice == "paper" &&   getComputerChoice == "rock") {
-                playerScore ++
-                return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
+    console.log(`Player Score is ${playerScore}`)
+    console.log(`Computer score is ${computerScore}`)
+    pChoice = playerChoice.target.innerText.toLowerCase()
+    console.log(pChoice.toString().toLowerCase())
+    console.log(`computer choice is ${computerChoice}`)
+    if(pChoice !== computerChoice) {
+        if (pChoice == "rock" &&   computerChoice == "scissors" || 
+        pChoice == "scissors" &&   computerChoice == "paper"||
+        pChoice == "paper" &&   computerChoice == "rock") {
+                playerScore++
+                // return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
         } else {
             computerScore++
-            return `You selected ${playerSelection} and the computer selected ${computerSelection}, you lose!!`
+            // return `You selected ${playerSelection} and the computer selected ${computerSelection}, you lose!!`
            } 
     } else {
         return `Tie game!`
@@ -51,32 +54,21 @@ function playRound(playerChoice, getComputerChoice) {
 }
 
 
-
-
     btn.forEach((currentBtn) => {
     currentBtn.addEventListener('click', (getComputerChoice))
 })
 
-        function playRound(playerChoice, getComputerChoice) {
-            if(playerChoice !== getComputerChoice) {
-                if (playerChoice == "rock" &&   getComputerChoice == "scissors" || 
-                playerChoice == "scissors" &&   getComputerChoice == "paper"||
-                playerChoice == "paper" &&   getComputerChoice == "rock") {
-                        playerScore ++
-                        return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
-                } else {
-                    computerScore++
-                    return `You selected ${playerSelection} and the computer selected ${computerSelection}, you lose!!`
-                } 
-        } else {
-            return `Tie game!`
-        }
 
-    }
+    btn.forEach((currentBtn) => {
+        currentBtn.addEventListener('click', playRound)
+    })
 
-    console.log(playRound(playerChoice, computerSelection))
-    console.log(playerChoice)
-    console.log(computerSelection)
+
+
+
+
+
+
 
 
     
