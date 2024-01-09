@@ -28,24 +28,27 @@ function getComputerChoice () {
 
 btn.forEach((currentBtn) => {
     currentBtn.addEventListener('click', () => {
-       playerChoice = currentBtn.textContent
-    })
+        playerChoice = currentBtn.textContent.toString().toLowerCase()
+       
+    }) 
+
 })
 
 
-function playRound(playerChoice, ComputerChoice) {
-    console.log(`The player choice is ${playerChoice}`)
-    pChoice = playerChoice.target.innerText.toLowerCase()
+function playRound() {
+    console.log("The player choice is " + playerChoice)
+    // pChoice = playerChoice.target.innerText.toLowerCase()
     console.log(playerScore)
-    if(pChoice !== computerChoice) {
-        if (pChoice == "rock" &&   computerChoice == "scissors" || 
-        pChoice == "scissors" &&   computerChoice == "paper"||
-        pChoice == "paper" &&   computerChoice == "rock") {
+    console.log(`pChoice is ${playerChoice}`)
+    if(playerChoice !== computerChoice) {
+        if (playerChoice == "rock" &&   computerChoice == "scissors" || 
+        playerChoice == "scissors" &&   computerChoice == "paper"||
+        playerChoice == "paper" &&   computerChoice == "rock") {
                 playerScore++
-                para.textContent =`You selected ${pChoice} and the computer selected ${computerChoice}, congrats you win!`
+                para.textContent =`You selected ${playerChoice} and the computer selected ${computerChoice}, congrats you win!`
         } else {
             computerScore++
-            para.textContent = `You selected ${pChoice} and the computer selected ${computerChoice}, you lose!!`
+            para.textContent = `You selected ${playerChoice} and the computer selected ${computerChoice}, you lose!!`
            } 
     } else {
         para.textContent =  `Tie game!`
@@ -77,7 +80,9 @@ if (playerScore == 5) {
 
 
     btn.forEach((currentBtn) => {
-        currentBtn.addEventListener('click', playRound)
+        currentBtn.addEventListener('click', () => {
+            playRound(playerChoice, computerChoice)
+        })
     })
 
 
@@ -87,16 +92,5 @@ if (playerScore == 5) {
 
 
 
-
-    
-
-// // Scpre calculating at the end
-//     if(playerScore > computerScore) {
-//         return `Great Job you scored ${playerScore} while the computer only scored ${computerScore}. A winner is you!`
-//     } else if (playerScore < computerScore)  {
-//         return `Tough break,  you scored ${playerScore} while the computer scored ${computerScore} you lose. `
-//     } else {
-//         return ' You Tied with the computer'
-//     }
 
 
