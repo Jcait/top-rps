@@ -1,6 +1,7 @@
 console.log("Hello World")
 const btn = document.querySelectorAll("button")
 const para = document.createElement('p')
+const result = document.querySelector('.results')
 let computerScore = 0
 let playerScore = 0
 let computerChoice
@@ -34,6 +35,7 @@ btn.forEach((currentBtn) => {
 function playRound(playerChoice, getComputerChoice) {
     console.log(`Player Score is ${playerScore}`)
     console.log(`Computer score is ${computerScore}`)
+    // console.log(`Player chooice is${playerChoice}`)
     pChoice = playerChoice.target.innerText.toLowerCase()
     console.log(pChoice.toString().toLowerCase())
     console.log(`computer choice is ${computerChoice}`)
@@ -42,14 +44,14 @@ function playRound(playerChoice, getComputerChoice) {
         pChoice == "scissors" &&   computerChoice == "paper"||
         pChoice == "paper" &&   computerChoice == "rock") {
                 playerScore++
-                // return `You selected ${playerSelection} and the computer selected ${computerSelection}, congrats you win!`
+                para.textContent =`You selected ${pChoice} and the computer selected ${computerChoice}, congrats you win!`
         } else {
             computerScore++
-            // return `You selected ${playerSelection} and the computer selected ${computerSelection}, you lose!!`
+            para.textContent = `You selected ${pChoice} and the computer selected ${computerChoice}, you lose!!`
            } 
     } else {
-        return `Tie game!`
-    }
+        para.textContent =  `Tie game!`
+    } result.appendChild(para)
 
 }
 
